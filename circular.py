@@ -74,7 +74,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import astropy.stats.circstats as cs
-import circular
+
 
 def circ_ang2rad(alpha):
     # alpha = circ_ang2rad(alpha)
@@ -375,7 +375,7 @@ def rayleigh_plot_separate(df, phase_in_ZT, group, fname, schedule='ZT', stacked
         points = ax.scatter(plotting['phase'], plotting['ones'], color=colors[g], label=df[group].unique()[g])
         # plot arrow, length = mean vector length of all points in the group
         arr_dir = cs.circmean(plotting['phase'])
-        arr_len = circular.circ_r(plotting['phase'])
+        arr_len = circ_r(plotting['phase'])
         kw = dict(arrowstyle="->", color=colors[g], linewidth=3)
         ax.annotate("", xy=(arr_dir, arr_len), xytext=(0, 0),
                     arrowprops=kw)
